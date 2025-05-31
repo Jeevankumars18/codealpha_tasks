@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Gallery</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: lightgray;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 150px;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+
+    .preview {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .preview img {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Simple Image Gallery</h2>
+
+<div class="gallery">
+  <img src="https://via.placeholder.com/200x150?text=1" onclick="show(this.src)">
+  <img src="https://via.placeholder.com/200x150?text=2" onclick="show(this.src)">
+  <img src="https://via.placeholder.com/200x150?text=3" onclick="show(this.src)">
+  <img src="https://via.placeholder.com/200x150?text=4" onclick="show(this.src)">
+</div>
+
+<div class="preview">
+  <img id="big" src="https://via.placeholder.com/600x400?text=Click+an+Image">
+</div>
+
+<script>
+  function show(src) {
+    document.getElementById('big').src = src.replace("200x150", "600x400");
+  }
+</script>
+
+</body>
+</html>
