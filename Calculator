@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Calculator</title>
+  <style>
+    body {
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px gray;
+    }
+
+    .calculator {
+      width: 260px;
+    }
+
+    #user-input {
+      background-color: black;
+      color: white;
+      font-size: 24px;
+      text-align: right;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      gap: 10px;
+    }
+
+    button {
+      height: 60px;
+      width: 60px;
+      font-size: 20px;
+      background-color: darkgray;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: gray;
+    }
+
+    .equal {
+      background-color: green;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <input type="text" id="user-input" disabled />
+      <div class="buttons">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="display('/')">/</button>
+        <button onclick="display('*')">*</button>
+        <button onclick="display('-')">-</button>
+
+        <button onclick="display('7')">7</button>
+        <button onclick="display('8')">8</button>
+        <button onclick="display('9')">9</button>
+        <button onclick="display('+')">+</button>
+
+        <button onclick="display('4')">4</button>
+        <button onclick="display('5')">5</button>
+        <button onclick="display('6')">6</button>
+        <button class="equal" onclick="calculateResult()">=</button>
+
+        <button onclick="display('1')">1</button>
+        <button onclick="display('2')">2</button>
+        <button onclick="display('3')">3</button>
+        <button onclick="display('0')">0</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const displayBox = document.getElementById("user-input");
+
+    function display(value) {
+      displayBox.value += value;
+    }
+
+    function clearDisplay() {
+      displayBox.value = '';
+    }
+
+    function calculateResult() {
+      try {
+        displayBox.value = eval(displayBox.value);
+      } catch {
+        displayBox.value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
